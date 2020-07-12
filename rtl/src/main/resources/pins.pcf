@@ -1,0 +1,10 @@
+set_io --warn-no-port clock B2
+set_io --warn-no-port io_led B3
+set_io --warn-no-port reset G2 # PIN_10
+set_io --warn-no-port io_rx E2 # PIN_8
+set_io --warn-no-port io_tx E1 # PIN_9
+set_io --warn-no-port io_glitch C2 # PIN_4
+set_io --warn-no-port io_clockin A1 # PIN_2
+set_io --warn-no-port io_clockout B1 # PIN_3
+set_io --warn-no-port io_active A6 # PIN_24
+set_io --warn-no-port io_trigger A7 # PIN_22

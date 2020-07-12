@@ -1,0 +1,10 @@
+.bloop
+.metals
+.scalafmt.conf
+*.asc
+*.bin
+*.blif
+*.rpt
+project/
+target
+build

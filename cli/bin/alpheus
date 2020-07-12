@@ -1,0 +1,52 @@
+#!/usr/bin/env node
+
+const readline = require('readline')
+const { Alpheus } = require('../')
+
+process.stdin.setRawMode(true);
+readline.emitKeypressEvents(process.stdin)
+
+const alphy = new Alpheus(process.argv[2])
+
+process.stdin.on('keypress', async (_, key) => {
+  switch (key.name) {
+    case "q":
+    case "c":
+      alphy.disconnect();
+      process.exit();
+    case "r":
+      await alphy.reset()
+      await resetSlots()
+      break;
+    case "i":
+      await alphy.updateClock(0, 0)
+      break;
+    case "e":
+      await alphy.updateClock(1, 0)
+      break;
+    case "1":
+      await resetSlots()
+      await alphy.updateSlot(0, 0, 5)
+      await alphy.start()
+      break;
+    case "2":
+      await resetSlots()
+      await alphy.updateSlot(0, 0, 5)
+      await alphy.updateSlot(1, 20, 5)
+      await alphy.start()
+      break;
+    case "3":
+      await resetSlots()
+      await alphy.updateSlot(0, 0, 5)
+      await alphy.updateSlot(1, 20, 5)
+      await alphy.updateSlot(2, 40, 5)
+      await alphy.start()
+      break;
+  }
+})
+
+const resetSlots = async () => {
+  for (let slot = 0; slot < 8; slot++) {
+    await alphy.updateSlot(slot, 0, 0)
+  }
+}

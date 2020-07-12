@@ -1,0 +1,17 @@
+{
+  "name": "alpheus",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": "bin/alpheus",
+  "author": "Vitaly Domnikov <dotcypress@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "mtlv": "0.0.3",
+    "prompts": "^2.3.2",
+    "serialport": "^9.0.0"
+  }
+}
